@@ -1,3 +1,5 @@
+Scrum Master: Chris Wargo
+
 Objective:
 
 App that tracks workouts. User’s will be able to keep track of their workouts as well as keep track of the date of the workout/weights used, sets and reps. App will call from an API that has a collection of workouts and users can pick and choose what they will like to do for that day.
@@ -40,3 +42,7 @@ We want users to be able to view past workouts, and create new workouts in real 
 If time allows, we would also like to add a timing feature that tracks how long a user has worked out for. We would also like to add a list of exercises, with each exercise having a description of the exercise, the muscles that are worked, and instructions on how to properly perform said exercise. It is our hope that this feature would inspire users to try and incorporate new exercises into their routine.
 
 Calls to this API would just be different GETs. For example GET all or GET by a specific workout.
+
+##Lifty App Flow
+This is the tentative flow of the Lifty app.
+![](planning/WorkoutAppFlow.jpg)
