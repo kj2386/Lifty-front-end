@@ -45,4 +45,4 @@ Calls to this API would just be different GETs. For example GET all or GET by a 
 
 ##Lifty App Flow
 This is the tentative flow of the Lifty app.
-![](planning/WorkoutAppFlow.jpg)
+![](WorkoutAppFlow.jpg)
