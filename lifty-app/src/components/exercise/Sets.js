@@ -6,6 +6,7 @@ function Sets() {
   const submitHandler = e => {
     e.preventDefault();
     //submit info to back end
+    alert(`set: ${set}`)
   };
   return (
     <div>
@@ -18,6 +19,7 @@ function Sets() {
             type="text"
           />
         </div>
+        <button>Submit</button>
       </form>
     </div>
   );
