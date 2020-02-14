@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
 
 function Weight() {
-    return (
-        <div>
-            
-        </div>
-    )
+  return (
+    <div>
+      <h3>Weight</h3>
+      
+    </div>
+  );
 }
 
-export default Weight
+export default Weight;

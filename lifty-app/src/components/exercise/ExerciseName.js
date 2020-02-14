@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
 
 function ExerciseName() {
-    return (
-        <div>
-            
-        </div>
-    )
+  return (
+    <div>
+      <h3>Name of Exercise</h3>
+      
+    </div>
+  );
 }
 
-export default ExerciseName
+export default ExerciseName;
