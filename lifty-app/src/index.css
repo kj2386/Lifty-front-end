@@ -7,6 +7,72 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  box-shadow: 0px 1px 4px 2px rgba(0,0,0,.3)
+}
+
+.navbar nav ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  list-style: none;
+}
+
+.navbar nav ul li:first-child {
+  margin-right: 10px;
+}
+
+.navbar nav ul li a {
+  font-size: 14px;
+}
+
+.wrapper {
+  padding: 15px;
+}
+
+.tbl-workout-log {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tbl-workout-log tbody tr:nth-child(even) {
+  background-color: #ccc;
+}
+
+.exercise-form {
+  margin-bottom: 20px;
+}
+
+.exercise-form div {
+  margin-bottom: 10px;
+}
+
+.exercise-form div input {
+  padding: 5px 10px;
+  margin-left: 10px;
+  border-radius: 5px;
+}
+
+.exercise-form button {
+  padding: 10px 15px;
+  color: white;
+  background-color: purple;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
