@@ -1,46 +1,10 @@
 import React, { useState } from 'react'
 import Exercise from './Exercise'
 import WorkoutLog from './WorkoutLog'
+import _ from 'lodash';
 
 function Workout() {
-    const [data, setData] = useState([
-        {
-            name: 'test 1',
-            sets: 7,
-            reps: 5,
-            weight: 60
-        },
-        {
-            name: 'test 1',
-            sets: 7,
-            reps: 5,
-            weight: 60
-        },
-        {
-            name: 'test 1',
-            sets: 7,
-            reps: 5,
-            weight: 60
-        },
-        {
-            name: 'test 1',
-            sets: 7,
-            reps: 5,
-            weight: 60
-        },
-        {
-            name: 'test 1',
-            sets: 7,
-            reps: 5,
-            weight: 60
-        },
-        {
-            name: 'test 1',
-            sets: 7,
-            reps: 5,
-            weight: 60
-        }
-    ]);
+    const [data, setData] = useState([]);
 
     const addItem = item => {
         setData([
@@ -49,11 +13,17 @@ function Workout() {
         ]);
     };
 
+    const deleteItem = index => {
+        const items = _.cloneDeep(data);
+        items.splice(index, 1);
+        setData(items);
+    };
+
     return (
         <div className="wrapper">
             <h1>This is a workout</h1>
             <Exercise onSubmit={addItem} />
-            <WorkoutLog data={data} />
+            <WorkoutLog data={data} onDelete={deleteItem} />
         </div>
     )
 }
