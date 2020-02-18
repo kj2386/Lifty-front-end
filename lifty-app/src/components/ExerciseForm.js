@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Weight() {
+function ExerciseForm() {
     return (
         <div>
-                300
+            
         </div>
     )
 }
 
-export default Weight
+export default ExerciseForm
