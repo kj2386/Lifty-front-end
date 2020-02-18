@@ -5,12 +5,23 @@ import _ from 'lodash';
 
 function Workout() {
     const [data, setData] = useState([]);
+    const [selectedItem, setItem] = useState(null);
 
-    const addItem = item => {
-        setData([
-            ...data,
-            item
-        ]);
+    let idx = 0;
+
+    const addOrEditItem = item => {
+        if (item.id) {
+            const itemIndex = data.findIndex(v => v.id === item.id);
+            data[itemIndex] = item;
+            setData(data);
+            setItem(null);
+        } else {
+            item.id = ++idx;
+            setData([
+                ...data,
+                item
+            ]);
+        }
     };
 
     const deleteItem = index => {
@@ -19,11 +30,16 @@ function Workout() {
         setData(items);
     };
 
+    const updateItem = index => {
+        const item = data[index];
+        setItem(item);
+    }
+
     return (
         <div className="wrapper">
             <h1>This is a workout</h1>
-            <Exercise onSubmit={addItem} />
-            <WorkoutLog data={data} onDelete={deleteItem} />
+            <Exercise onSubmit={addOrEditItem} item={selectedItem} />
+            <WorkoutLog data={data} onDelete={deleteItem} onUpdate={updateItem} />
         </div>
     )
 }

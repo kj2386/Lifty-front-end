@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const defaultData = {
     name: '',
@@ -7,9 +7,13 @@ const defaultData = {
     weight: ''
 };
 
-export default ({ onSubmit }) => {
+export default ({ onSubmit, item }) => {
 
-    const [data, setData] = useState(defaultData);
+    const [data, setData] = useState(item || defaultData);
+
+    useEffect(() => {
+        !!item && setData(item);
+    }, [item]);
 
     const changeHandler = e => {
         setData({

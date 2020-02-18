@@ -47,8 +47,17 @@ a {
   width: 100%;
 }
 
+.tbl-workout-log td,
+.tbl-workout-log th {
+  padding: 5px 0;
+}
+
 .tbl-workout-log tbody tr:nth-child(even) {
   background-color: #ccc;
+}
+
+.tbl-workout-log tbody td .btn-delete {
+  margin-right: 10px;
 }
 
 .exercise-form {
@@ -77,3 +86,4 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
