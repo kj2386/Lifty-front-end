@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import Exercise from './Exercise'
-import WorkoutLog from './WorkoutLog'
 import _ from 'lodash';
-
+import WorkoutLog from './WorkoutLog'
 function Workout() {
     const [data, setData] = useState([]);
     const [selectedItem, setItem] = useState(null);
@@ -39,7 +38,7 @@ function Workout() {
         <div className="wrapper">
             <h1>This is a workout</h1>
             <Exercise onSubmit={addOrEditItem} item={selectedItem} />
-            <WorkoutLog data={data} onDelete={deleteItem} onUpdate={updateItem} />
+            <WorkoutLog />
         </div>
     )
 }

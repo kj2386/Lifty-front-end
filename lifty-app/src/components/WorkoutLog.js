@@ -1,36 +1,92 @@
-import React from 'react';
+import React from "react";
+import ExerciseName from './ExerciseName'
+import SetNumber from './SetNumber'
+import Reps from './Reps'
+import Weight from './Weight'
 
-export default ({ data, onDelete, onUpdate }) => (
-    <>
-        {data.length === 0 && (
-            <p>There is no data to display</p>
-        )}
-        {data.length > 0 && (
-            <table className="tbl-workout-log" border="2" bordercolor="#000">
-                <thead>
-                    <tr>
-                        <th>Execises</th>
-                        <th>Sets</th>
-                        <th>Reps</th>
-                        <th>Weight</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {data.map(({ name, sets, reps, weight } = {}, index) => (
-                        <tr key={index}>
-                            <td align="center">{name}</td>
-                            <td align="center">{sets}</td>
-                            <td align="center">{reps}</td>
-                            <td align="center">{weight}</td>
-                            <td align="center">
-                                <a href="#" className="btn-delete" onClick={() => onDelete(index)}>Delete</a>
-                                <a href="#" onClick={() => onUpdate(index)}>Update</a>
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-        )}
-    </>
+export default () => (
+  <>
+    <table className="tbl-workout-log" border="2" bordercolor="#000">
+      <thead>
+        <tr>
+          <th>Execises</th>
+          <th>Set 1</th>
+          <th>Reps</th>
+          <th>Weight</th>
+          <th>Set 2</th>
+          <th>Reps</th>
+          <th>Weight</th>
+          <th>Set 3</th>
+          <th>Reps</th>
+          <th>Weight</th>
+          <th>Set 4</th>
+          <th>Reps</th>
+          <th>Weight</th>
+          <th>Set 5</th>
+          <th>Reps</th>
+          <th>Weight</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td align="center">
+            <ExerciseName />
+          </td>
+          <td align="center">
+            <SetNumber />
+          </td>
+          <td align="center">
+            <Reps />
+          </td>
+          <td align="center">
+            <Weight />
+          </td>
+          <td align="center">
+            <SetNumber />
+          </td>
+          <td align="center">
+            <Reps />
+          </td>
+          <td align="center">
+            <Weight />
+          </td>
+          <td align="center">
+            <SetNumber />
+          </td>
+          <td align="center">
+            <Reps />
+          </td>
+          <td align="center">
+            <Weight />
+          </td>
+          <td align="center">
+            <SetNumber />
+          </td>
+          <td align="center">
+            <Reps />
+          </td>
+          <td align="center">
+            <Weight />
+          </td>
+          <td align="center">
+            <SetNumber />
+          </td>
+          <td align="center">
+            <Reps />
+          </td>
+          <td align="center">
+            <Weight />
+          </td>
+
+          <td align="center">
+            <a href="#" className="btn-delete">
+              Delete
+            </a>
+            <a href="#">Update</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </>
 );
