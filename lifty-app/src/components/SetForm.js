@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 
 const defaultData = {
-    name: '',
-    sets: '',
+    exercise_id: '',
+    setNumber: '',
     reps: '',
     weight: ''
 };
 
-export default ({ onSubmit, item }) => {
+export default ({ onSubmit, set, exercises }) => {
 
-    const [data, setData] = useState(item || defaultData);
+    const [data, setData] = useState(set || defaultData);
 
     useEffect(() => {
-        !!item && setData(item);
-    }, [item]);
+        !!set && setData(set);
+    }, [set]);
 
     const changeHandler = e => {
         setData({
@@ -31,26 +31,32 @@ export default ({ onSubmit, item }) => {
     return (
         <form onSubmit={submit} className="exercise-form">
             <div>
-                <label>Name</label>
-                <input
-                    name="name"
+                <label>Exercise</label>
+                <select
+                    name="exercise_id"
                     onChange={changeHandler}
-                    value={data.name}
-                    required
-                />
+                    value={data.exercise_id}
+                    required>
+                        <option value=''>-----</option>
+                    {exercises.map(({ _id, name } = {}) => (
+                        <option key={_id} value={_id}>{name}</option>
+                    ))}
+                </select>
             </div>
             <div>
-                <label>Sets</label>
+                <label>Set Number</label>
                 <input
-                    name="sets"
+                    type="number"
+                    name="setNumber"
                     onChange={changeHandler}
-                    value={data.sets}
+                    value={data.setNumber}
                     required
                 />
             </div>
             <div>
                 <label>Reps</label>
                 <input
+                    type="number"
                     name="reps"
                     onChange={changeHandler}
                     value={data.reps}
