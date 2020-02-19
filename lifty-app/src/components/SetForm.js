@@ -7,7 +7,7 @@ const defaultData = {
     weight: ''
 };
 
-export default ({ onSubmit, set, exercises }) => {
+function SetForm({ onSubmit, set, exercises }) {
 
     const [data, setData] = useState(set || defaultData);
 
@@ -77,3 +77,5 @@ export default ({ onSubmit, set, exercises }) => {
         </form>
     )
 };
+
+export default SetForm;

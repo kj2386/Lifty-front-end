@@ -4,7 +4,7 @@ const defaultData = {
     name: ''
 };
 
-export default ({ onSubmit, exercise }) => {
+function ExerciseForm({ onSubmit, exercise }) {
 
     const [data, setData] = useState(exercise || defaultData);
 
@@ -37,3 +37,5 @@ export default ({ onSubmit, exercise }) => {
         </form>
     )
 };
+
+export default ExerciseForm;

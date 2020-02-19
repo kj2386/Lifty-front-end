@@ -37,9 +37,10 @@ function Workout() {
     const addOrEditSet = set => {
         const exerciseIndex = data.findIndex(v => v._id === set.exercise_id);
         if (set._id) {
-            const setIndex = data[exerciseIndex].findIndex(v => v._id === set._id);
-            data[exerciseIndex][setIndex] = {
-                ...data[exerciseIndex][setIndex],
+            const sets = data[exerciseIndex].sets;
+            const setIndex = sets.findIndex(v => v._id === set._id);
+            sets[setIndex] = {
+                ...sets[setIndex],
                 ...set
             };
             setData(_.cloneDeep(data));
@@ -51,23 +52,28 @@ function Workout() {
         }
     };
 
-    // const deleteItem = index => {
-    //     const items = _.cloneDeep(data);
-    //     items.splice(index, 1);
-    //     setData(items);
-    // };
+     const deleteSelectedSet = index => {
+          //const items = _.cloneDeep(data);
+           //items.splice(index, 1);
+        //    setData(items);
+     };
 
-    // const updateItem = index => {
-    //     const item = data[index];
-    //     setItem(item);
-    // }
+     const updateSelectedSet = (workoutIndex, index) => {
+        const workout = data[workoutIndex];
+        updateSet({
+            ...workout.sets[index],
+            exercise_id: workout._id
+        });
+
+        console.log('$$$$$ update', workoutIndex);
+     }
 
     return (
         <div className="wrapper">
             <h1>This is a workout</h1>
-            <ExerciseForm onSubmit={addOrEditExercise} exercise={selectedExercise} />
+            <ExerciseForm onSubmit={addOrEditExercise} exercise={selectedExercise} deleteItem={selectedExercise} />
             <SetForm onSubmit={addOrEditSet} exercises={data} set={selectedSet} />
-            <WorkoutLog data={data} />
+            <WorkoutLog data={data} onUpdate={updateSelectedSet} onDelete={deleteSelectedSet} />
         </div>
     )
 }
