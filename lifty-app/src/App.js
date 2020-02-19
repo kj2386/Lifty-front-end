@@ -1,28 +1,25 @@
 import React from 'react'
-import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+import { Route, Link, Switch, BrowserRouter as Router } from "react-router-dom";
 import Workout from '../src/components/Workout'
-import Nav from './components/Nav';
+import Home from './components/Home';
 import UpperBodyWorkout from './components/UpperBodyWorkout';
 import LowerBodyWorkout from './components/LowerBodyWorkout';
 function App() {
     return (
-        <Router>
-            <main>
-                <Nav />
-                <Switch>
-                    <Route path="/upperbody">
-                        <UpperBodyWorkout />
-                    </Route>
-                    <Route path="/lowerbody">
-                        <LowerBodyWorkout />
-                    </Route>
-                    <Route path="/">
-                        <Workout />
-                    </Route>
-                </Switch>
-            </main>
-        </Router>
-    )
+      <Router>
+        <header className="navbar">
+          <div className="logo">
+            <Link to="/home">Lifty</Link>
+          </div>
+        </header>
+        <main>
+          <Switch>
+            <Route exact path="/home" component={Home} />
+            <Route path="/" component={Workout} />
+          </Switch>
+        </main>
+      </Router>
+    );
 }
 
 export default App

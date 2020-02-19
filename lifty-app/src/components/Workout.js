@@ -3,6 +3,7 @@ import ExerciseForm from './ExerciseForm'
 import SetForm from './SetForm'
 import WorkoutLog from './WorkoutLog'
 import _ from 'lodash';
+import Home from './Home';
 
 function Workout() {
     const [data, setData] = useState([]);
@@ -69,11 +70,13 @@ function Workout() {
      }
 
     return (
+        <div>
         <div className="wrapper">
             <h1>This is a workout</h1>
             <ExerciseForm onSubmit={addOrEditExercise} exercise={selectedExercise} deleteItem={selectedExercise} />
             <SetForm onSubmit={addOrEditSet} exercises={data} set={selectedSet} />
             <WorkoutLog data={data} onUpdate={updateSelectedSet} onDelete={deleteSelectedSet} />
+        </div>
         </div>
     )
 }
