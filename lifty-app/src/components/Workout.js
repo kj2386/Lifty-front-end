@@ -3,7 +3,7 @@ import ExerciseForm from './ExerciseForm'
 import SetForm from './SetForm'
 import WorkoutLog from './WorkoutLog'
 import _ from 'lodash';
-import Home from './Home';
+
 
 function Workout() {
     const [data, setData] = useState([]);
