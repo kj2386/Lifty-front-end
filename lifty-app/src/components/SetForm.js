@@ -29,6 +29,7 @@ function SetForm({ onSubmit, set, exercises }) {
     };
 
     return (
+        <div>
         <form onSubmit={submit} className="exercise-form">
             <div>
                 <label>Exercise</label>
@@ -75,6 +76,7 @@ function SetForm({ onSubmit, set, exercises }) {
             </div>
             <button type="submit">Submit</button>
         </form>
+        </div>
     )
 };
 

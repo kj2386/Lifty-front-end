@@ -26,7 +26,9 @@ function ExerciseForm({ onSubmit, exercise }) {
     };
 
     return (
+        <div>
         <form onSubmit={submit} className="exercise-form">
+            <label>Enter the name of the exercise you want to log:</label>
             <input
                 name="name"
                 onChange={changeHandler}
@@ -35,6 +37,7 @@ function ExerciseForm({ onSubmit, exercise }) {
             />
             <button type="submit">Submit</button>
         </form>
+        </div>
     )
 };
 

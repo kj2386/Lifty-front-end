@@ -71,10 +71,11 @@ function Workout() {
 
     return (
         <div>
-        <div className="wrapper">
-            <h1>This is a workout</h1>
+        <div className="exerciseForm">
             <ExerciseForm onSubmit={addOrEditExercise} exercise={selectedExercise} deleteItem={selectedExercise} />
             <SetForm onSubmit={addOrEditSet} exercises={data} set={selectedSet} />
+            </div>
+            <div>
             <WorkoutLog data={data} onUpdate={updateSelectedSet} onDelete={deleteSelectedSet} />
         </div>
         </div>

@@ -7,7 +7,7 @@ import LowerBodyWorkout from './components/LowerBodyWorkout';
 function App() {
     return (
       <Router>
-        <header className="navbar">
+        <header className="header">
           <div className="logo">
             <Link to="/home">Lifty</Link>
           </div>

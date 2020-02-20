@@ -20,8 +20,9 @@ function Home() {
     }, []);
     
     return (
-        <div>
-          <ul>
+        <div className="workoutDate">
+          <h2>Select workout by date</h2>
+          <ul className="homeList">
             {workout &&
               workout.map(date => <Link key={date._id} to={`/workout/${date._id}`}> <li key={date._id}>{date.date}</li></Link>)}
           </ul>
