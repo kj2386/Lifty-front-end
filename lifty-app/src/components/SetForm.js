@@ -32,7 +32,7 @@ function SetForm({ onSubmit, set, exercises }) {
         <div>
         <form onSubmit={submit} className="exercise-form">
             <div>
-                <label>Exercise</label>
+                <label className="space">Exercise</label>
                 <select
                     name="exercise_id"
                     onChange={changeHandler}

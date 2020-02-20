@@ -34,6 +34,7 @@ function ExerciseForm({ onSubmit, exercise }) {
                 onChange={changeHandler}
                 value={data.name}
                 required
+                className="exerciseInput"
             />
             <button type="submit">Submit</button>
         </form>

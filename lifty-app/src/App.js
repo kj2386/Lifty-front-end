@@ -2,8 +2,7 @@ import React from 'react'
 import { Route, Link, Switch, BrowserRouter as Router } from "react-router-dom";
 import Workout from '../src/components/Workout'
 import Home from './components/Home';
-import UpperBodyWorkout from './components/UpperBodyWorkout';
-import LowerBodyWorkout from './components/LowerBodyWorkout';
+
 function App() {
     return (
       <Router>
