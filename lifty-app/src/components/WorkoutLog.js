@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 function WorkoutLog({ data, onDelete, onUpdate }) {
   return (
-    <>
+    <div className="tableBackground">
       {data.length === 0 && <div>There is no data to display</div>}
       {data.length > 0 && (
         <table className="tbl-workout-log" border="2" bordercolor="#000">
@@ -59,7 +59,7 @@ function WorkoutLog({ data, onDelete, onUpdate }) {
           </tbody>
         </table>
       )}
-    </>
+    </div>
   );
 }
 export default WorkoutLog;
