@@ -1,17 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios'
+import { fetchWorkoutList } from '../lib/api';
+
 function Home() {
-    const [workout, setWorkout] = useState(null)
+    const [workout, setWorkout] = useState([])
+  
     useEffect(() => {
-      axios.get(
-        "https://lifty-backend.herokuapp.com/lifty/workout"
-      )
+      fetchWorkoutList()
       .then(res => {
-          setWorkout(res.data)
-      })
-      .then(res => {
-          console.log(res.data)
+          setWorkout(res)
       })
       .catch(err => {
           console.log(err)
@@ -20,17 +17,14 @@ function Home() {
     
     return (
       <div className="workoutDate">
-        <h2>Select workout by date</h2>
+        <h2>Select workout by date or click the button to create a new workout!</h2>
+        <button>Click to create workout</button>
         <ul className="homeList">
-          {workout &&
-            workout.map(date => (
-              <Link key={date._id} to={`/workout/${date._id}`}>
-                {" "}
-                <li key={date._id}>
-                  {date.date}
-                </li>
-              </Link>
-            ))}
+          {workout.map(date => (
+            <Link key={date._id} to={`/workout/${date._id}`}>
+              <li key={date._id}>{new Date(date.date).toLocaleDateString()}</li>
+            </Link>
+          ))}
         </ul>
       </div>
     );
