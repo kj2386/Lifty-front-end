@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { fetchWorkoutList, deleteWorkout } from "../lib/api";
-import { APIURL } from "../config";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { fetchWorkoutList, deleteWorkout } from '../lib/api';
+import { APIURL } from '../config';
 
 function Home({ match }) {
   const initialWorkoutState = {
@@ -15,22 +15,22 @@ function Home({ match }) {
     e.preventDefault();
     const url = `${APIURL}/workout/`;
     fetch(url, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-type": "application/json; charset=UTF-8"
+        'Content-type': 'application/json; charset=UTF-8'
       },
       body: JSON.stringify(createNewWorkout)
     }).then(response => response.json());
   };
   //delete workout
-   const deleteHandler = event => {
-     const url = `${APIURL}/workout/${match.params.id}`;
-     fetch(url, { method: "DELETE" })
-       .then(res => {
-         setDeleted(true);
-       })
-       .catch(console.error);
-   };
+  const deleteHandler = ({ match }) => {
+    const url = `${APIURL}/workout/${match.params.id}`;
+    fetch(url, { method: 'DELETE' })
+      .then(res => {
+        setDeleted(true);
+      })
+      .catch(console.error);
+  };
   //fetch all workouts
   useEffect(() => {
     fetchWorkoutList()
@@ -49,13 +49,13 @@ function Home({ match }) {
       </h2>
       <button onClick={submitHandler}>Click to create workout</button>
       <ul className="homeList">
-        {workout.map(date => (
+        {workout.map((date, index) => (
           <div>
             <Link key={date._id} to={`/workout/${date._id}`}>
               <li key={date._id}>{new Date(date.date).toLocaleDateString()}</li>
             </Link>
             <div>
-              <button onClick={deleteHandler}>
+              <button id={index} onClick={deleteHandler}>
                 Click to delete
               </button>
             </div>

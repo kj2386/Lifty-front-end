@@ -7,7 +7,7 @@ export const fetchWorkoutList = () => {
 
 //GET specific workout
 export const fetchWorkout = workoutid => {
-  return fetch(`${APIURL}/workout/${workoutid}`).then(resp => resp.json());
+  return fetch(`${APIURL}/workout/${workoutid}`).then(res => res.json());
 };
 
 //DELETE set
