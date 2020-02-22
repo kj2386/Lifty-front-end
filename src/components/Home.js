@@ -23,7 +23,7 @@ function Home({ match }) {
     }).then(response => response.json());
   };
   //delete workout
-  const deleteHandler = ({ match }) => {
+  const deleteHandler = (event) => {
     const url = `${APIURL}/workout/${match.params.id}`;
     fetch(url, { method: 'DELETE' })
       .then(res => {
@@ -55,7 +55,7 @@ function Home({ match }) {
               <li key={date._id}>{new Date(date.date).toLocaleDateString()}</li>
             </Link>
             <div>
-              <button id={index} onClick={deleteHandler}>
+              <button key={index} onClick={deleteHandler}>
                 Click to delete
               </button>
             </div>

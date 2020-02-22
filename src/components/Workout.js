@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Exercise from './Exercise';
 import { APIURL } from '../config';
+
 function Workout({ match }) {
+  
   const [workout, setWorkout] = useState([]);
   const getId = match.params.id;
   useEffect(() => {
