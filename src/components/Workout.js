@@ -3,7 +3,6 @@ import Exercise from './Exercise';
 import { APIURL } from '../config';
 
 function Workout({ match }) {
-  
   const [workout, setWorkout] = useState([]);
   const getId = match.params.id;
   useEffect(() => {
@@ -19,18 +18,18 @@ function Workout({ match }) {
       <Exercise />
       <div>
         {workout.map(exercises => {
-          return <div key={exercises._id}>{exercises.name}</div>;
-        })}
-        {/* map through twice to get nested array */}
-        {workout.map(exercises => {
           return exercises.sets.map(sets => {
             return (
+              <>
+              <div key={exercises._id}>{exercises.name}</div>
               <div key={sets._id}>
                 set#: {sets.setNumber} weight: {sets.weight} reps: {sets.reps}
               </div>
+              </>
             );
           });
         })}
+        
       </div>
     </div>
   );
