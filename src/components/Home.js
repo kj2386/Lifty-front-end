@@ -54,11 +54,7 @@ function Home({ match }) {
             <Link key={date._id} to={`/workout/${date._id}`}>
               <li key={date._id}>{new Date(date.date).toLocaleDateString()}</li>
             </Link>
-            <div>
-              <button key={index} onClick={deleteHandler}>
-                Click to delete
-              </button>
-            </div>
+            
           </div>
         ))}
       </ul>
